@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "../include/lista.hpp"
 
@@ -26,6 +27,7 @@ bool Lista::insereMusica(Musica *musica){
     if(checaListaNula()){
        this->cabeca = novo;
        this->calda = novo;
+       cout << "Música adicionada com sucesso!" << endl << endl;
        return true;
     }
     else{
@@ -33,7 +35,7 @@ bool Lista::insereMusica(Musica *musica){
             //Checa se a música é igual
             //Mesmo nome de musica e artista
             if( (tmp->musica1->titulo == novo->musica1->titulo) && (tmp->musica1->nome_artista == novo->musica1->nome_artista) ){
-                cout << "Essa música já existe" << endl;
+                cout << "Essa música já existe" << endl << endl;
                 return false;
             }
         tmp = tmp->prox;
@@ -41,6 +43,7 @@ bool Lista::insereMusica(Musica *musica){
         //Adiciona a música
         this->calda->prox = novo;
         this->calda = novo;
+        cout << "Música adicionada com sucesso!!" << endl << endl;
         return true;
     }
 }
