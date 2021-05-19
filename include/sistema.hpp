@@ -20,6 +20,7 @@ class Sistema{
 
     bool insereMusicaSistema(string nome_musica, string nome_artista);
     bool deletaMusicaSistema(string nome_musica, string nome_artista);
+    void listaMusicasSistema();
 
 };
 

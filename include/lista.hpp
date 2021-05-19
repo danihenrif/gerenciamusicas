@@ -22,6 +22,7 @@ class Lista{
     bool insereMusica(Musica *musica);
     No* buscaMusica(string nome, string artista);
     bool deletaMusica(string nome, string artista);
+    void listaMusicas();
 
 
 };

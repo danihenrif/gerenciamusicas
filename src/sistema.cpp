@@ -15,5 +15,10 @@ bool Sistema::insereMusicaSistema(string nome_musica, string nome_artista){
 }
 
 bool Sistema::deletaMusicaSistema(string nome_musica, string nome_artista){
-    this->listasistema->deletaMusica(nome_musica, nome_artista);
+    return this->listasistema->deletaMusica(nome_musica, nome_artista);
 }
+
+void Sistema::listaMusicasSistema(){
+    this->listasistema->listaMusicas();
+}
+

@@ -34,7 +34,7 @@ bool Lista::insereMusica(Musica *musica){
         while(tmp != NULL){
             //Checa se a música é igual
             //Mesmo nome de musica e artista
-            if( (tmp->musica1->titulo == novo->musica1->titulo) && (tmp->musica1->nome_artista == novo->musica1->nome_artista) ){
+            if( (tmp->musica1->titulo == novo->musica1->titulo) && (tmp->musica1->titulo == novo->musica1->nome_artista) ){
                 cout << "Essa música já existe" << endl << endl;
                 return false;
             }
@@ -68,7 +68,7 @@ No* Lista::buscaMusica(string nome, string artista){
     return temp;
 }
 
-bool Lista::deletaMusica(string nome, string artista){
+bool Lista::deletaMusica(string nome, string artista){  
     No *temp = this->cabeca;
     
     if(checaListaNula()){
@@ -78,7 +78,7 @@ bool Lista::deletaMusica(string nome, string artista){
     //Se a música estiver na primeira posição
     else if(temp->musica1->titulo == nome and temp->musica1->nome_artista == artista){
         this->cabeca = temp->prox;
-        cout << "Removido do início" << endl;
+        cout << "Música removida com sucesso :D" << endl;
         return true;
     }
     //Posições adiante
@@ -87,14 +87,14 @@ bool Lista::deletaMusica(string nome, string artista){
             //Se for remover da última posição
             if( (temp->prox->musica1->titulo == nome and temp->prox->musica1->nome_artista == artista) and temp->prox->prox == NULL){
                 this->calda = temp;
-                temp->prox = temp->prox->prox;
-                cout << "Removido do fim" << endl;
+                temp->prox = temp->prox->prox; //NULL
+                cout << "Música removida com sucesso :D" << endl;
                 return true;
             }
             //Meio da lista
             else if( (temp->prox->musica1->titulo == nome and temp->prox->musica1->nome_artista == artista) ){
                 temp->prox = temp->prox->prox;
-                cout << "Removido do meio"<< endl;
+                cout << "Música removida com sucesso :D"<< endl;
                 return true;
             }
             temp = temp->prox;
@@ -102,4 +102,19 @@ bool Lista::deletaMusica(string nome, string artista){
     }
     cout << "Música inexistente" << endl;
     return false;
+}
+
+void Lista::listaMusicas(){
+    
+    No *tmp = this->cabeca;
+    
+    if(checaListaNula()){
+        cout << "Não há músicas cadastradas no sistema!!!" << endl;
+    }
+    else{
+        while(tmp != NULL){
+            cout << tmp->musica1->titulo << endl << tmp->musica1->nome_artista << endl << endl;
+            tmp = tmp->prox;
+        }
+    }
 }
