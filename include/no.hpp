@@ -1,5 +1,5 @@
-#ifndef NODE_HPP
-#define NODE_HPP
+#ifndef NO_HPP
+#define NO_HPP
 
 #include "musica.hpp"
 

@@ -11,7 +11,7 @@ class Lista{
     //Atributos da classe
     public:
     No *cabeca;
-    No *calda;
+    No *cauda;
 
     //Métodos da classe
     public:

@@ -29,6 +29,7 @@ int main(){
             cout << "Programa enterrado com sucesso !!!" << endl << endl;
             break;
         }
+        //Insere música na lista
         else if(op == 1){
             
             cout << "Insira o nome da música:";
@@ -46,7 +47,7 @@ int main(){
             }
 
         }
-        
+        //Deleta música da lista
         else if(op == 2){
 
             cout << "Insira o nome da música:";

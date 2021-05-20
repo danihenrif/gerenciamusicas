@@ -10,3 +10,6 @@ No::No(Musica *musica_entrada){
 
 
 //Destrutor
+No::~No(){
+    
+}

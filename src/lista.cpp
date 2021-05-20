@@ -8,7 +8,7 @@ using namespace std;
 //Construtor
 Lista::Lista(){
     cabeca = NULL;
-    calda = cabeca;
+    cauda = cabeca;
 }
 
 //Destrutor
@@ -26,7 +26,7 @@ bool Lista::insereMusica(Musica *musica){
     //Checa se a lista é nula, se for insere a música na cabeca da lista
     if(checaListaNula()){
        this->cabeca = novo;
-       this->calda = novo;
+       this->cauda = novo;
        cout << "Música adicionada com sucesso!" << endl << endl;
        return true;
     }
@@ -41,8 +41,8 @@ bool Lista::insereMusica(Musica *musica){
         tmp = tmp->prox;
         }
         //Adiciona a música
-        this->calda->prox = novo;
-        this->calda = novo;
+        this->cauda->prox = novo;
+        this->cauda = novo;
         cout << "Música adicionada com sucesso!!" << endl << endl;
         return true;
     }
@@ -86,7 +86,7 @@ bool Lista::deletaMusica(string nome, string artista){
         while(temp->prox != NULL){
             //Se for remover da última posição
             if( (temp->prox->musica1->titulo == nome and temp->prox->musica1->nome_artista == artista) and temp->prox->prox == NULL){
-                this->calda = temp;
+                this->cauda = temp;
                 temp->prox = temp->prox->prox; //NULL
                 cout << "Música removida com sucesso :D" << endl;
                 return true;

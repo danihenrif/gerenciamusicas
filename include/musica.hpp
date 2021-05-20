@@ -1,5 +1,5 @@
-#ifndef MUSIC_HPP
-#define MUSIC_HPP
+#ifndef MUSICA_HPP
+#define MUSICA_HPP
 
 #include <iostream>
 #include <string>
