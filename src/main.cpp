@@ -68,11 +68,11 @@ int main(){
                 qtd_musicas--;
             }
         }
-
+        //Lista músicas do sistema  
         else if(op == 3){
             sistema->listaMusicasSistema();
         }
-
+        //Insere playlist
         else if(op == 4){
             cout << "Insira o nome da playlist:";
             fflush(stdin);
@@ -83,7 +83,17 @@ int main(){
                 qtd_playlists++;
             }            
         }
+        //Deleta playlist
+        else if(op == 5){
+            cout << "Insira o nome da playlist:";
+            fflush(stdin);
+            getline(cin,nome_playlist);
+            cout << endl;
 
+            if(sistema->deletaPlaylistSistema(nome_playlist)){
+                qtd_playlists--;
+            }
+        }
         else{
             cout << "Operador inválido" << endl;
         }

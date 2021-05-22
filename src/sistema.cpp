@@ -39,3 +39,7 @@ bool Sistema::adicionaPlaylistSistema(string playlist){
     return this->listaplaylist->adicionaPlaylist(playlist_criada);
 }
 
+bool Sistema::deletaPlaylistSistema(string playlist){
+    return this->listaplaylist->deletaPlaylist(playlist);
+}
+

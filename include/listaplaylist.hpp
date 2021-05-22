@@ -22,6 +22,7 @@ class Listaplaylist{
     ~Listaplaylist();
 
     bool adicionaPlaylist(Playlist *playlist);
+    bool deletaPlaylist(string playlist);
 
 };
 #endif

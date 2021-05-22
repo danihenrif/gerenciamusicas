@@ -48,3 +48,39 @@ bool Listaplaylist::adicionaPlaylist(Playlist *playlist){
         return true;
     }
 }
+
+bool Listaplaylist::deletaPlaylist(string playlist){
+
+    Noplaylist *temp = this->cabeca;
+
+    if(temp == NULL){
+        cout << "Não há playlists cadastradas!!!" << endl;
+        return false;
+    }
+    //Remover do início
+    else if(temp->playlist1->nome_playlist == playlist){
+        this->cabeca = temp->prox;
+        cout << "Playlist removida com sucesso :D" << endl;
+        return 1;
+    }
+    else{
+        while(temp->prox != NULL){
+            //Remover da última posição
+            if(temp->prox->playlist1->nome_playlist == playlist and temp->prox->prox == NULL){
+                this->cauda = temp;
+                temp->prox = NULL;
+                cout << "Playlist removida com sucesso :D" << endl;
+                return true;
+            }
+            //Remover do meio da lista
+            else if(temp->prox->playlist1->nome_playlist == playlist){
+                temp->prox = temp->prox->prox;
+                cout << "Playlist removida com sucesso :D"<< endl;
+                return true;               
+            }
+            temp = temp->prox;
+        }
+    }
+    cout << "Playlist inexistente :(" << endl;
+    return false;    
+}

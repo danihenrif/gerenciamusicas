@@ -110,7 +110,7 @@ bool Lista::deletaMusica(string nome, string artista){
             //Se for remover da última posição
             if( (temp->prox->musica1->titulo == nome and temp->prox->musica1->nome_artista == artista) and temp->prox->prox == NULL){
                 this->cauda = temp;
-                temp->prox = temp->prox->prox; //NULL
+                temp->prox = NULL;
                 cout << "Música removida com sucesso :D" << endl;
                 return true;
             }
