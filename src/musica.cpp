@@ -1,8 +1,7 @@
 #include <iostream>
+#include <string>
 
 #include "../include/musica.hpp"
-#include "../include/lista.hpp"
-#include "../include/no.hpp"
 
 using namespace std;
 
@@ -14,4 +13,3 @@ Musica::Musica(string nome, string artista){
 
 //Destrutor padrão
 Musica::~Musica(){}
-

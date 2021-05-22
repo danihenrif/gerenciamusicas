@@ -1,25 +1,29 @@
 #include <iostream>
 #include <string>
 
-#include "../include/sistema.hpp"
 #include "../include/musica.hpp"
-#include "../include/no.hpp"
+#include "../include/lista.hpp"
+#include "../include/playlist.hpp"
+#include "../include/sistema.hpp"
+#include "../include/listaplaylist.hpp"
+#include "../include/noplaylist.hpp"
 
 using namespace std;
+
 
 int main(){
     Sistema *sistema = new Sistema();
 
     //Armazenam as entradas do usuário
-    string nome_musica, nome_artista;
+    string nome_musica, nome_artista, nome_playlist;
     //Armazena a ação escolhida pelo usuário
     int op;
     //Armazena a quantidade de músicas registradas no sistema
-    int qtd_musicas = 0;
+    int qtd_musicas = 0, qtd_playlists = 0;
 
     while(1){
         //Requisita a ação para o programa realizar
-        cout << "Digite a opção desejada: ";
+        cout << "Digite a opção desejada:";
         fflush(stdin); //Limpa o cache
         cin >> op;
         cout << endl;
@@ -67,6 +71,17 @@ int main(){
 
         else if(op == 3){
             sistema->listaMusicasSistema();
+        }
+
+        else if(op == 4){
+            cout << "Insira o nome da playlist:";
+            fflush(stdin);
+            getline(cin,nome_playlist);
+            cout << endl;
+
+            if(sistema->adicionaPlaylistSistema(nome_playlist)){
+                qtd_playlists++;
+            }            
         }
 
         else{

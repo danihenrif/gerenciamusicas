@@ -4,8 +4,10 @@
 #include <iostream>
 #include <string>
 
-#include "no.hpp"
 #include "musica.hpp"
+#include "no.hpp"
+
+using namespace std;
 
 class Lista{
     //Atributos da classe
@@ -21,10 +23,10 @@ class Lista{
     bool checaListaNula();
     bool insereMusica(Musica *musica);
     No* buscaMusica(string nome, string artista);
+    bool buscaMusicaBool(string nome, string artista);
     bool deletaMusica(string nome, string artista);
     void listaMusicas();
 
 
 };
-
 #endif

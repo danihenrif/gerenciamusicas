@@ -17,8 +17,20 @@ bin/no.o: src/no.cpp bin/musica.o
 bin/lista.o: src/lista.cpp bin/no.o
 	g++ src/lista.cpp -Iinclude -O0 -g -Wall -pedantic -std=c++11 -c -o bin/lista.o
 
+#Compila o arquivo playlist.cpp e gera o arquivo objeto playlist.o
+bin/playlist.o: src/playlist.cpp 
+	g++ src/playlist.cpp -Iinclude -O0 -g -Wall -pedantic -std=c++11 -c -o bin/playlist.o
+
+#Compila o arquivo noplaylist.cpp e gera o arquivo objeto noplaylist.o
+bin/noplaylist.o: src/noplaylist.cpp bin/playlist.o
+	g++ src/noplaylist.cpp -Iinclude -O0 -g -Wall -pedantic -std=c++11 -c -o bin/noplaylist.o
+
+#Compila o arquivo listaplaylist.cpp e gera o arquivo objeto listaplaylist.o
+bin/listaplaylist.o: src/listaplaylist.cpp bin/noplaylist.o
+	g++ src/listaplaylist.cpp -Iinclude -O0 -g -Wall -pedantic -std=c++11 -c -o bin/listaplaylist.o
+
 #Compila o arquivo sistema.cpp e gera o arquivo objeto sistema.o
-bin/sistema.o: src/sistema.cpp bin/lista.o
+bin/sistema.o: src/sistema.cpp bin/listaplaylist.o 
 	g++ src/sistema.cpp -Iinclude -O0 -g -Wall -pedantic -std=c++11 -c -o bin/sistema.o
 
 # Compila o arquivo main.cpp, gera o arquivo objeto main.o e o executável

@@ -4,14 +4,23 @@
 #include <iostream>
 #include <string>
 
+
 #include "lista.hpp"
 #include "musica.hpp"
 #include "no.hpp"
+#include "listaplaylist.hpp"
+#include "playlist.hpp"
+#include "noplaylist.hpp"
+#include "musica.hpp"
+
+using namespace std;
+
 
 class Sistema{
     //Atributos da classe
     public:
     Lista *listasistema;
+    Listaplaylist *listaplaylist;
 
     //Métodos da classe
     public:
@@ -21,7 +30,8 @@ class Sistema{
     bool insereMusicaSistema(string nome_musica, string nome_artista);
     bool deletaMusicaSistema(string nome_musica, string nome_artista);
     void listaMusicasSistema();
+    bool adicionaPlaylistSistema(string playlist);
 
+    
 };
-
 #endif

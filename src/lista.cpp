@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
 
+#include "../include/musica.hpp"
 #include "../include/lista.hpp"
+#include "../include/no.hpp"
 
 using namespace std;
 
@@ -66,6 +68,27 @@ No* Lista::buscaMusica(string nome, string artista){
         }
     }
     return temp;
+}
+
+bool Lista::buscaMusicaBool(string nome, string artista){
+
+    No *atual = this->cabeca;
+    
+    if(checaListaNula()){
+        cout << "Não há musicas cadastradas !" << endl;
+        return false;
+    }
+    else{
+        while(atual != NULL){
+            if(atual->musica1->nome_artista == artista and atual->musica1->titulo == nome ){
+                return true;
+            }
+            atual = atual->prox;
+        }
+    }
+    
+    cout << "Essa música não está cadastrada no sistema !" << endl;
+    return false;
 }
 
 bool Lista::deletaMusica(string nome, string artista){  

@@ -18,5 +18,4 @@ class Musica{
     Musica( string nome, string artista );
     ~Musica();
 };
-
 #endif

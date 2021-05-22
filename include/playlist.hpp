@@ -2,7 +2,10 @@
 #define PLAYLIST_HPP
 
 #include <iostream>
+#include <string>
+
 #include "lista.hpp"
+#include "no.hpp"
 
 using namespace std;
 
@@ -19,5 +22,4 @@ class Playlist{
     Playlist(string nome);
     
 };
-
 #endif
