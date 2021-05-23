@@ -94,6 +94,25 @@ int main(){
                 qtd_playlists--;
             }
         }
+        //Insere musica em playlist
+        else if(op == 6){
+            cout << "Insira o nome da playlist:";
+            fflush(stdin);
+            getline(cin,nome_playlist);
+            cout << endl;
+
+            cout << "Insira o nome da música:";
+            fflush(stdin);
+            getline(cin,nome_musica);
+            cout << endl;
+
+            cout << "Insira o nome do artista:";
+            fflush(stdin);
+            getline(cin,nome_artista);
+            cout << endl;
+
+            sistema->insereMusicaPlaylistSistema(nome_playlist, nome_musica, nome_artista);
+        }
         else{
             cout << "Operador inválido" << endl;
         }

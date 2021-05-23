@@ -19,6 +19,20 @@ Listaplaylist::Listaplaylist(){
 //Destrutor
 Listaplaylist::~Listaplaylist(){}
 
+bool Listaplaylist::playlistExiste(string nome_playlist){
+    Noplaylist *temp = this->cabeca;
+
+    while(temp != NULL){
+        if(temp->playlist1->nome_playlist == nome_playlist){
+            //Playlist existe
+            return true;
+        }
+        temp = temp->prox;
+    }
+    //Playlist não existe
+    return false;
+}
+
 bool Listaplaylist::adicionaPlaylist(Playlist *playlist){
 
     Noplaylist *novo = new Noplaylist(playlist);
@@ -83,4 +97,54 @@ bool Listaplaylist::deletaPlaylist(string playlist){
     }
     cout << "Playlist inexistente :(" << endl;
     return false;    
+}
+
+void Listaplaylist::insereMusicaPlaylist(string nome_playlist, string nome_musica, string nome_artista){
+    Noplaylist *temp = this->cabeca;
+    
+    Musica *musica = new Musica(nome_musica, nome_artista);
+    No *novo = new No(musica);
+
+    while(temp != NULL){
+        if(temp->playlist1->nome_playlist == nome_playlist){
+            No *temp2 = temp->playlist1->lista->cabeca;
+            No *temp3 = temp->playlist1->lista->cauda;
+            
+            //Lista nula cabela nula
+            if(temp2 == NULL){ 
+                temp2 = novo;
+                temp3 = novo;
+
+                cout << "Música adicionada com sucesso!!!" << endl << endl;
+                return;
+            }
+            //Lista não nula insere no fim
+            else{
+                temp3->prox = novo;
+                temp3 = novo;
+                return;
+            }
+        }
+        temp = temp->prox;
+    }
+}
+
+bool Listaplaylist::buscaMusicaPlaylistBool(string nome_playlist, string nome_musica, string nome_artista){
+    Noplaylist *temp = this->cabeca;
+    
+    while(temp != NULL){
+        if(temp->playlist1->nome_playlist == nome_playlist){
+            No *temp2 = temp->playlist1->lista->cabeca;
+            while(temp2 != NULL){
+                if ( (temp2->musica1->titulo == nome_musica) and (temp2->musica1->nome_artista == nome_artista) ){
+                    //Música encontrada na playlist
+                    return true;
+                }
+                temp2 = temp2->prox;
+            }
+        }
+        temp = temp->prox;
+    }
+    //Não há música igual na playlist
+    return false;
 }

@@ -43,3 +43,23 @@ bool Sistema::deletaPlaylistSistema(string playlist){
     return this->listaplaylist->deletaPlaylist(playlist);
 }
 
+
+void Sistema::insereMusicaPlaylistSistema(string nome_playlist, string nome_musica, string nome_artista){
+    //Checa se a música está no sistema
+    if( !(this->listasistema->buscaMusicaBool(nome_musica, nome_artista) ) ){
+        cout << "Insira primeiro a música no sistema para depois inserir na playlist!!!" << endl << endl;
+        return;
+    }
+    //Checa se a playlist existe
+    if( !(this->listaplaylist->playlistExiste(nome_playlist) ) ){
+        cout << "Playlist inexistente :D" << endl; 
+    }
+    //Checa se a música ja está na playlist
+    if(this->listaplaylist->buscaMusicaPlaylistBool(nome_playlist, nome_musica, nome_artista)){
+        cout << "A música ja está na playlist :D" << endl << endl;
+        return;
+    }
+    //Insere a música na playlist
+    this->listaplaylist->insereMusicaPlaylist(nome_playlist, nome_musica, nome_artista);
+
+}
