@@ -14,6 +14,7 @@ Playlist::Playlist(){
 //Construtor
 Playlist::Playlist(string nome){
     this->nome_playlist = nome;
+    this->lista = new Lista();
 }
 
 //Destrutor 

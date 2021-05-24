@@ -46,35 +46,24 @@ bool Sistema::deletaPlaylistSistema(string playlist){
 
 void Sistema::insereMusicaPlaylistSistema(string nome_playlist, string nome_musica, string nome_artista){
     Noplaylist *endereco_playlist = NULL;
-     
-    /*//Checa se há playlists cadastradas
+    //Checa se há playlists cadastradas
     if(this->listaplaylist->checaListaPlaylistNula()){
         cout << "Não há playlists cadastradas :D" << endl << endl;
         return;
     }
-
-    //Checa se a música está no sistema
+    //Checa se a música está cadastrada no sistema
     if( !(this->listasistema->buscaMusicaBool(nome_musica, nome_artista) ) ){
         cout << "Insira primeiro a música no sistema para depois inserir na playlist!!!" << endl << endl;
         return;
     }
-    
-
-
-    //Checa se a playlist existe    
-    if(endereco_playlist == NULL){
-        cout << "A playlist não existe :D" << endl << endl;
-        return;
-    }
-
-    //Checa se a música ja está na playlist
-    if(this->listaplaylist->buscaMusicaPlaylistBool(nome_playlist, nome_musica, nome_artista, endereco_playlist)){
-        cout << "A música ja está na playlist :D" << endl << endl;
-        return;
-    }*/
-
+    //Pega o endereço da playlist
     endereco_playlist = this->listaplaylist->buscaPlaylist(nome_playlist);
-    //Insere a música na playlist
-    endereco_playlist->playlist1->insereMusicaPlaylist(nome_musica, nome_artista);
-
+    
+    //Adiciona a música
+    if(endereco_playlist == NULL){
+        cout << "Playlist inexistente :D" << endl << endl;
+    }
+    else{
+        endereco_playlist->playlist1->insereMusicaPlaylist(nome_musica, nome_artista);
+    }
 }
