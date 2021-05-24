@@ -20,6 +20,7 @@ bool Lista::checaListaNula(){
     return this->cabeca == NULL;
 }
 
+
 bool Lista::insereMusica(Musica *musica){
 
     No *novo = new No(musica);
@@ -81,13 +82,14 @@ bool Lista::buscaMusicaBool(string nome, string artista){
     else{
         while(atual != NULL){
             if(atual->musica1->nome_artista == artista and atual->musica1->titulo == nome ){
+                //Música cadastrada no sistema
                 return true;
             }
             atual = atual->prox;
         }
     }
     
-    cout << "Essa música não está cadastrada no sistema !" << endl;
+    //Música não cadastrada no sistema
     return false;
 }
 
