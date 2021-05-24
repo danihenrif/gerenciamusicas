@@ -37,11 +37,11 @@ bool Lista::insereMusica(Musica *musica){
         while(tmp != NULL){
             //Checa se a música é igual
             //Mesmo nome de musica e artista
-            if( (tmp->musica1->titulo == novo->musica1->titulo) && (tmp->musica1->titulo == novo->musica1->nome_artista) ){
+            if( (tmp->musica1->titulo == novo->musica1->titulo) and (tmp->musica1->nome_artista == novo->musica1->nome_artista) ){
                 cout << "Essa música já existe" << endl << endl;
                 return false;
             }
-        tmp = tmp->prox;
+            tmp = tmp->prox;
         }
         //Adiciona a música
         this->cauda->prox = novo;

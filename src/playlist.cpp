@@ -25,3 +25,7 @@ void Playlist::insereMusicaPlaylist(string nome_musica, string nome_artista){
     Musica *musica = new Musica(nome_musica, nome_artista);
     this->lista->insereMusica(musica);
 }
+
+void Playlist::deletaMusicaPlaylist(string nome_musica, string nome_artista){
+    this->lista->deletaMusica(nome_musica, nome_artista);
+}

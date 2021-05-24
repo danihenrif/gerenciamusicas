@@ -21,6 +21,7 @@ class Playlist{
     
     Playlist(string nome);
     void insereMusicaPlaylist(string nome_musica, string nome_artista);
+    void deletaMusicaPlaylist(string nome_musica, string nome_artista);
     
 };
 #endif
