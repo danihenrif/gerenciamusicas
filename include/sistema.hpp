@@ -31,7 +31,8 @@ class Sistema{
     bool deletaMusicaSistema(string nome_musica, string nome_artista);
     void listaMusicasSistema();
     bool adicionaPlaylistSistema(string playlist);
-    bool deletaPlaylistSistema(string playlist);  
+    bool deletaPlaylistSistema(string playlist);
+    void listaPlaylistsSistema(int op, string nome_playlist);  
     void insereMusicaPlaylistSistema(string nome_playlist, string nome_musica, string nome_artista);
     void deletaMusicaPlaylistSistema(string nome_playlist, string nome_musica, string nome_artista);
     void moverMusicaPlaylistSistema(string nome_playlist_remover, string nome_musica, string nome_artista, string nome_playlist_adicionar);

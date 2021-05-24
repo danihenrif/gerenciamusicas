@@ -17,7 +17,7 @@ int main(){
     //Armazenam as entradas do usuário
     string nome_musica, nome_artista, nome_playlist, nome_playlist_adicionada;
     //Armazena a ação escolhida pelo usuário
-    int op;
+    int op, aux;
     //Armazena a quantidade de músicas registradas no sistema
     int qtd_musicas = 0, qtd_playlists = 0;
 
@@ -35,7 +35,6 @@ int main(){
         }
         //Insere música na lista
         else if(op == 1){
-            
             cout << "Insira o nome da música:";
             fflush(stdin);
             cin >> nome_musica;
@@ -94,8 +93,30 @@ int main(){
                 qtd_playlists--;
             }
         }
-        //Insere musica em playlist
+        //Lista playlists do sistema
         else if(op == 6){
+            cout << "Listar playlist específica(1) ou Listar todas as playlists (2) :"; 
+            fflush(stdin); //Limpa o cache
+            cin >> aux;
+            cout << endl;     
+            
+            if(aux == 1){
+            cout << "Digite o nome da playlist: "; 
+            fflush(stdin); //Limpa o cache
+            cin >> nome_playlist;
+            cout << endl;
+
+            sistema->listaPlaylistsSistema(aux, nome_playlist);            
+            }
+            else if(aux == 2){
+                sistema->listaPlaylistsSistema(aux, "\0");
+            }
+            else{
+                cout << "Operador inválido :C" << endl << endl;
+            }     
+        }        
+        //Insere musica em playlist
+        else if(op == 7){
             cout << "Insira o nome da playlist:";
             fflush(stdin);
             getline(cin,nome_playlist);
@@ -114,7 +135,7 @@ int main(){
             sistema->insereMusicaPlaylistSistema(nome_playlist, nome_musica, nome_artista);
         }
         //Deleta música de playlist
-        else if(op == 7){
+        else if(op == 8){
             cout << "Insira o nome da playlist:";
             fflush(stdin);
             getline(cin,nome_playlist);
@@ -133,7 +154,7 @@ int main(){
             sistema->deletaMusicaPlaylistSistema(nome_playlist, nome_musica, nome_artista);
         }
         //Mover música entre playlists
-        else if(op == 8){
+        else if(op == 9){
             cout << "Insira o nome da playlist que a música será removida:";
             fflush(stdin);
             getline(cin,nome_playlist);
@@ -155,6 +176,10 @@ int main(){
             cout << endl;
 
             sistema->moverMusicaPlaylistSistema(nome_playlist, nome_musica, nome_artista, nome_playlist_adicionada);                        
+        }
+        //Printa quantidade de músicas e playlists cadastradas
+        else if(op == 10){
+            cout << "Existem " << qtd_musicas << " músicas cadastradas" << endl << "Existem " << qtd_playlists << " playlists cadastradas" << endl << endl; 
         }
         else{
             cout << "Operador inválido" << endl;

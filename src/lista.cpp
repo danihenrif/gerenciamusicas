@@ -134,7 +134,7 @@ void Lista::listaMusicas(){
     No *tmp = this->cabeca;
     
     if(checaListaNula()){
-        cout << "Não há músicas cadastradas no sistema!!!" << endl;
+        cout << "Não há músicas cadastradas !!!" << endl;
     }
     else{
         while(tmp != NULL){

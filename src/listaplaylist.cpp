@@ -102,6 +102,21 @@ bool Listaplaylist::deletaPlaylist(string playlist){
     return false;    
 }
 
+void Listaplaylist::listaPlaylistEspecifica(Noplaylist* endereco){
+    cout << "Nome da playlist : " << endereco->playlist1->nome_playlist << endl << endl;
+    endereco->playlist1->lista->listaMusicas();
+}
+
+void Listaplaylist::listaTodasPlaylists(){
+    Noplaylist * tmp = this->cabeca;
+    
+    while(tmp != NULL){
+        cout << "Nome da playlist : " << tmp->playlist1->nome_playlist << endl << endl;
+        tmp->playlist1->lista->listaMusicas();
+        tmp = tmp->prox;
+    }
+}
+
 Noplaylist *Listaplaylist::buscaPlaylist(string nome_playlist){
     Noplaylist *temp = this->cabeca;
     

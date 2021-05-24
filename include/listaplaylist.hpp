@@ -25,6 +25,8 @@ class Listaplaylist{
     bool playlistExiste(string nome_playlist);
     bool adicionaPlaylist(Playlist *playlist);
     bool deletaPlaylist(string playlist);
+    void listaPlaylistEspecifica(Noplaylist* endereco);
+    void listaTodasPlaylists();
     Noplaylist *buscaPlaylist(string nome_playlist);
     bool buscaMusicaPlaylistBool(string nome_playlist, string nome_musica, string nome_artista, Noplaylist *endereco);
 };

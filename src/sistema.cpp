@@ -43,6 +43,31 @@ bool Sistema::deletaPlaylistSistema(string playlist){
     return this->listaplaylist->deletaPlaylist(playlist);
 }
 
+void Sistema::listaPlaylistsSistema(int op, string nome_playlist){
+    //Checa se há playlists cadastradas
+    if(this->listaplaylist->checaListaPlaylistNula()){
+        cout << "Não há playlists cadastradas :D" << endl << endl;
+        return;
+    }
+    
+    if(op == 1){
+        //Pega o endereço da playlist específica       
+        Noplaylist *endereco_playlist = NULL;
+        endereco_playlist = this->listaplaylist->buscaPlaylist(nome_playlist);
+    
+        //Lista a playlist específica
+        if(endereco_playlist == NULL){
+            cout << "Playlist inexistente :D" << endl << endl;
+        }
+        else{
+            this->listaplaylist->listaPlaylistEspecifica(endereco_playlist);
+        }
+    }
+    else if(op == 2){
+        this->listaplaylist->listaTodasPlaylists();
+    }
+
+}
 
 void Sistema::insereMusicaPlaylistSistema(string nome_playlist, string nome_musica, string nome_artista){
     Noplaylist *endereco_playlist = NULL;
